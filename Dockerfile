@@ -8,7 +8,7 @@ RUN apt-get update && \
 WORKDIR /invidious
 RUN git clone --depth=1 https://github.com/iv-org/invidious.git . && \
     shards install --production && \
-    sed -e 's/(TCPSocket)/(TCPSocket) && @conninfo.sslmode != :disable/g' ./lib/pg/src/pq/connection.cr && \
+    sed -i -e 's/(TCPSocket)/(TCPSocket) && @conninfo.sslmode != :disable/g' ./lib/pg/src/pq/connection.cr && \
     crystal build ./src/invidious.cr \
       --release \
       -Ddisable_quic \
