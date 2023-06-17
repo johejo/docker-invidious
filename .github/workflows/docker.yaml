@@ -27,13 +27,17 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Get timestamp
+        run: |
+          echo TIMESTAMP=$(date '+%Y%m%d%H%M') >> $GITHUB_ENV
+
       - name: Extract metadata
         id: meta
         uses: docker/metadata-action@v4.6.0
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=schedule,pattern={{date 'YYYY-MMDDTHH:mm:ss'}},prefix=${{ github.sha }}-
+            type=raw,value=${{ env.TIMESTAMP }}-${{ github.sha }
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4.1.1
