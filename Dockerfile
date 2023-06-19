@@ -20,4 +20,5 @@ COPY --from=builder /invidious/config/sql ./config/sql
 COPY --from=builder /invidious/assets ./assets
 COPY --from=builder /invidious/locales ./locales
 COPY --from=builder /invidious/invidious ./invidious
-ENTRYPOINT [ "tini", "--", "/invidious/invidious" ]
+ENTRYPOINT [ "tini", "--" ]
+CMD [ "/invidious/invidious" ]
