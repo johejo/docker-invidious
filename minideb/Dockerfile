@@ -11,6 +11,7 @@ RUN git clone --depth=1 https://github.com/iv-org/invidious.git . && \
     sed -i -e 's/negotiate_ssl if.*//g' ./lib/pg/src/pq/connection.cr && \
     crystal build ./src/invidious.cr \
       --release \
+      --warnings all \
       -Ddisable_quic \
       --link-flags "-lxml2 -llzma"
 
