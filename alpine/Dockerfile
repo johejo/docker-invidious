@@ -1,14 +1,14 @@
-FROM crystallang/crystal:1.7.3-alpine as builder
+FROM crystallang/crystal:1.9.2-alpine as builder
 RUN apk add --no-cache sqlite-static yaml-static
 WORKDIR /invidious
 RUN git clone --depth=1 https://github.com/iv-org/invidious.git . && \
     shards install --production && \
     sed -i -e 's/negotiate_ssl if.*//g' ./lib/pg/src/pq/connection.cr
-COPY --from=quay.io/invidious/lsquic-compiled /root/liblsquic.a ./lib/lsquic/src/lsquic/ext/liblsquic.a
 RUN crystal build ./src/invidious.cr \
       --release \
       --static \
       --warnings all \
+      -Ddisable_quic \
       --link-flags "-lxml2 -llzma"
 
 FROM alpine:3.18

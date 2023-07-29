@@ -1,4 +1,4 @@
-FROM crystallang/crystal:1.8.2 as builder
+FROM crystallang/crystal:1.9.2 as builder
 RUN apt-get update && \
     apt-get install -y \
       liblzma-dev \
