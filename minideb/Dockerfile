@@ -12,7 +12,6 @@ RUN git clone --depth=1 https://github.com/iv-org/invidious.git . && \
     crystal build ./src/invidious.cr \
       --release \
       --warnings all \
-      -Ddisable_quic \
       --link-flags "-lxml2 -llzma"
 
 FROM bitnami/minideb

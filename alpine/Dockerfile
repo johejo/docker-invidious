@@ -8,7 +8,6 @@ RUN crystal build ./src/invidious.cr \
       --release \
       --static \
       --warnings all \
-      -Ddisable_quic \
       --link-flags "-lxml2 -llzma"
 
 FROM alpine:3.18
