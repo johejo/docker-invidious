@@ -8,7 +8,6 @@ RUN apt-get update && \
 WORKDIR /invidious
 RUN git clone --depth=1 https://github.com/iv-org/invidious.git . && \
     shards install --production && \
-    sed -i -e 's/negotiate_ssl if.*//g' ./lib/pg/src/pq/connection.cr && \
     crystal build ./src/invidious.cr \
       --release \
       --warnings all \

@@ -3,8 +3,7 @@ RUN apk add --no-cache sqlite-static yaml-static
 WORKDIR /invidious
 RUN git clone --depth=1 https://github.com/iv-org/invidious.git . && \
     shards install --production && \
-    sed -i -e 's/negotiate_ssl if.*//g' ./lib/pg/src/pq/connection.cr
-RUN crystal build ./src/invidious.cr \
+    crystal build ./src/invidious.cr \
       --release \
       --static \
       --warnings all \
