@@ -1,4 +1,4 @@
-FROM crystallang/crystal:1.9.2-alpine as builder
+FROM crystallang/crystal:1.10.1-alpine as builder
 RUN apk add --no-cache sqlite-static yaml-static
 WORKDIR /invidious
 RUN git clone --depth=1 https://github.com/iv-org/invidious.git . && \
