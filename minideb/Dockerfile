@@ -6,7 +6,9 @@ RUN apt-get update && \
       --no-install-recommends --no-install-suggests && \
     apt-get remove --purge --auto-remove -y && rm -rf /var/lib/apt/lists/*
 WORKDIR /invidious
-RUN git clone --depth=1 https://github.com/iv-org/invidious.git . && \
+RUN git clone --depth=1 https://github.com/iv-org/invidious.git .
+COPY ./*.patch .
+RUN git apply ./*.patch && \
     shards install --production && \
     crystal build ./src/invidious.cr \
       --release \

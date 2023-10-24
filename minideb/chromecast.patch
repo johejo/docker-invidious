@@ -1,0 +1,13 @@
+diff --git a/src/invidious/views/components/player_sources.ecr b/src/invidious/views/components/player_sources.ecr
+index 9af3899c..66096278 100644
+--- a/src/invidious/views/components/player_sources.ecr
++++ b/src/invidious/views/components/player_sources.ecr
+@@ -13,6 +13,8 @@
+ <script src="/videojs/videojs-markers/videojs-markers.js?v=<%= ASSET_COMMIT %>"></script>
+ <script src="/videojs/videojs-share/videojs-share.js?v=<%= ASSET_COMMIT %>"></script>
+ <script src="/videojs/videojs-vtt-thumbnails/videojs-vtt-thumbnails.js?v=<%= ASSET_COMMIT %>"></script>
++<script src="https://unpkg.com/@silvermine/videojs-chromecast@1.4.1/dist/silvermine-videojs-chromecast.min.js"></script>
++<script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+ 
+ 
+ <% if params.annotations %>
