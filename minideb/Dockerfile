@@ -12,7 +12,7 @@ ADD https://unpkg.com/@silvermine/videojs-chromecast@1.4.1/dist/silvermine-video
 ADD https://www.gstatic.com/cv/js/sender/v1/cast_sender.js ./assets/js/
 RUN git apply ./*.patch && \
     chmod +r ./assets/videojs/silvermine-videojs-chromecast.min.js && \
-    chmod +r ./js/cast_sender.js && \
+    chmod +r ./assets/js/cast_sender.js && \
     shards install --production && \
     crystal build ./src/invidious.cr \
       --release \
