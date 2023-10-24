@@ -8,6 +8,8 @@ RUN apt-get update && \
 WORKDIR /invidious
 RUN git clone --depth=1 https://github.com/iv-org/invidious.git .
 COPY ./*.patch .
+ADD https://unpkg.com/@silvermine/videojs-chromecast@1.4.1/dist/silvermine-videojs-chromecast.min.js ./assets/videojs/
+ADD https://www.gstatic.com/cv/js/sender/v1/cast_sender.js ./assets/js/
 RUN git apply ./*.patch && \
     shards install --production && \
     crystal build ./src/invidious.cr \
