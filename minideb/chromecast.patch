@@ -1,3 +1,16 @@
+diff --git a/assets/js/player.js b/assets/js/player.js
+index 16bb2752..429076a6 100644
+--- a/assets/js/player.js
++++ b/assets/js/player.js
+@@ -23,6 +23,8 @@ var options = {
+             'fullscreenToggle'
+         ]
+     },
++    techOrder: ['chromecast', 'html5'],
++    plugins: {chromecast: {}},
+     html5: {
+         preloadTextTracks: false,
+         vhs: {
 diff --git a/src/invidious/views/components/player_sources.ecr b/src/invidious/views/components/player_sources.ecr
 index 9af3899c..dfb71f8f 100644
 --- a/src/invidious/views/components/player_sources.ecr
