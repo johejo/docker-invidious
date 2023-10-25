@@ -6,13 +6,7 @@ RUN apt-get update && \
       --no-install-recommends --no-install-suggests && \
     apt-get remove --purge --auto-remove -y && rm -rf /var/lib/apt/lists/*
 WORKDIR /invidious
-RUN git clone --depth=1 https://github.com/iv-org/invidious.git .
-COPY ./*.patch .
-ADD https://unpkg.com/@silvermine/videojs-chromecast@1.4.1/dist/silvermine-videojs-chromecast.min.js ./assets/videojs/
-ADD https://www.gstatic.com/cv/js/sender/v1/cast_sender.js ./assets/js/
-RUN git apply ./*.patch && \
-    chmod +r ./assets/videojs/silvermine-videojs-chromecast.min.js && \
-    chmod +r ./assets/js/cast_sender.js && \
+RUN git clone --depth=1 https://github.com/iv-org/invidious.git . && \
     shards install --production && \
     crystal build ./src/invidious.cr \
       --release \
