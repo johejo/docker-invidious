@@ -1,8 +1,12 @@
 diff --git a/assets/js/player.js b/assets/js/player.js
-index 16bb2752..429076a6 100644
+index 16bb2752..65c94aa0 100644
 --- a/assets/js/player.js
 +++ b/assets/js/player.js
-@@ -23,6 +23,8 @@ var options = {
+@@ -20,9 +20,12 @@ var options = {
+             'audioTrackButton',
+             'qualitySelector',
+             'playbackRateMenuButton',
++            'chromecastButton',
              'fullscreenToggle'
          ]
      },
